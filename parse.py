@@ -6,13 +6,13 @@ import sys
 if __name__ == "__main__":
 
 
-	profile = os.path.abspath('/Users/sikkas01/sharad_pydicom/project/CTPAnonimizationProfile.xml')
+	profile = os.path.join(os.path.split(os.path.realpath(__file__))[0],'CTPAnonimizationProfile.xml')
 
 	parse = profileParser.ctpparser(profile)
 	print parse._printParameters()
-	dicom = os.path.abspath('/Users/sikkas01/sharad_pydicom/ssikka25-pydicom/source/dicom/testfiles/rtplan.dcm')
+	dicom = sys.argv[1]
 	
-	targetDicom = '/Users/sikkas01/sharad_pydicom/project/anon_rtplan.dcm'
+	targetDicom = sys.argv[2]
 	parse.anonymizeDicom(dicom,targetDicom)
 	#parse._printParameters()
 

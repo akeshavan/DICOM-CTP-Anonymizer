@@ -947,7 +947,7 @@ class ctpparser():
 
 	def anonymizeDicom(self, dicomFile,targetFile):
 
-		ds = dicom.read_file(dicomFile)
+		ds = dicom.read_file(dicomFile,force=True)
 
 		self._setDataSet(ds)
 		
